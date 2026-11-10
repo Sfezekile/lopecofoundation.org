@@ -24,6 +24,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="style/main.css">
+  <link rel="stylesheet" href="style/initiatives-cards.css">
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
@@ -64,6 +65,7 @@
   </header>
 
   <main id="top">
+    <div id="home">
     <section class="hero">
       <div class="wrap">
         <div class="hero-text">
@@ -85,8 +87,10 @@
     <section id="purpose">
       <div class="wrap">
         <h2>Our purpose</h2>
-        <p style="max-width:180vh; text-align: justify; color: var(--muted)">Dedicated to fostering meaningful connections between diverse 
-            communities, empowering people to lead local initiatives, and advocating for policies that promote safe communities. Peace is built by people doing the work, and we recognize those on
+        <p style="max-width:180vh; text-align: justify; color: var(--muted)">Dedicated to fostering meaningful
+          connections between diverse
+          communities, empowering people to lead local initiatives, and advocating for policies that promote safe
+          communities. Peace is built by people doing the work, and we recognize those on
           the front lines, create platforms for youth voices, and push for peace-centred responses to the social and
           environmental challenges South Africans face every day.</p>
         <div class="grid" style="margin-top:28px">
@@ -109,36 +113,38 @@
       </div>
     </section>
 
-    <section id="initiatives" class="alt">
+    <!-- <section id="initiatives" class="alt">
       <div class="wrap">
         <h2>Our initiatives</h2>
         <div class="grid" style="margin-top:28px">
-          <article class="card init">
-            <div class="wm" style="font-size:1.45rem;font-weight:800;letter-spacing:.12em">PRE<span
-                style="color:#d4147a">SI</span>DEMICS</div>
-            <p class="tag">Today’s health security, tomorrow’s peace.</p>
-            <a class="more" href="mailto:info@lopecofoundation.org?subject=Presidemics">Explore more →</a>
-          </article>
-          <article class="card init">
-            <div class="wm" style="font-size:1.5rem"><span><i style="color:#d4147a;font-weight:600">peace</i><b
-                  style="letter-spacing:.08em;color:#555"> PARCEL™</b></span></div>
-            <p class="tag">Relief · Recovery · Peace.</p>
-            <a class="more" href="mailto:info@lopecofoundation.org?subject=peaceParcel">Explore more →</a>
-          </article>
-          <article class="card init">
-            <div class="wm"
-              style="font-size:1.9rem;font-weight:800;text-transform:uppercase;color:#8dc63f;letter-spacing:-.02em">
-              Peace<br>Card</div>
-            <p class="tag">A LOPECO initiative.</p>
-            <a class="more" href="mailto:info@lopecofoundation.org?subject=Peace%20Card">Explore more →</a>
-          </article>
-          <article class="card init">
-            <div class="wm" style="font-size:1.8rem;font-weight:800;letter-spacing:-.02em">orange<br>diary</div>
-            <p class="tag">A LOPECO initiative.</p>
-            <a class="more" href="mailto:info@lopecofoundation.org?subject=Orange%20Diary">Explore more →</a>
-          </article>
-          <!-- Add a short description to each card once you have the copy -->
+          <button class="card cat" type="button" data-cat="health">
+            <h3>Health, Relief &amp; Wellbeing</h3>
+            <p>Health advocacy, emergency relief and positive mental wellbeing.</p>
+            <span class="more">4 initiatives <i class="ri-arrow-left-s-line"></i></span>
+          </button>
+          <button class="card cat" type="button" data-cat="gender">
+            <h3>Women, Men &amp; Ending Violence</h3>
+            <p>Leadership, inclusion and positive action to end violence against women and girls.</p>
+            <span class="more">4 initiatives <i class="ri-arrow-left-s-line"></i></span>
+          </button>
+          <button class="card cat" type="button" data-cat="youth">
+            <h3>Youth, Children &amp; Digital Peace</h3>
+            <p>Young voices, children’s peacebuilding and digital emotional literacy.</p>
+            <span class="more">3 initiatives <i class="ri-arrow-left-s-line"></i></span>
+          </button>
+          <button class="card cat" type="button" data-cat="community">
+            <h3>Community &amp; Social Cohesion</h3>
+            <p>Co-existence, community clubs, peace games and community walks.</p>
+            <span class="more">4 initiatives <i class="ri-arrow-left-s-line"></i></span>
+          </button>
         </div>
+      </div>
+    </section> -->
+    <section id="initiatives" class="alt">
+      <div class="wrap">
+        <h2>Ideas that put peace into action</h2>
+        <p style="color:var(--muted);max-width:620px">Choose a category to explore the programmes behind it.</p>
+        <div id="cats" class="cats"></div>
       </div>
     </section>
 
@@ -146,9 +152,10 @@
       <div class="wrap two">
         <div>
           <h2>Our story</h2>
-          <p class="story-p">The Lady of Peace Community Foundation (LOPECO) promotes peace to end violence 
-            against women, children, and families - builds equal, resilient, and peaceful communities. 
-            Our vision is to create a connected, empowered and inclusive society where communities unite to build lasting 
+          <p class="story-p">The Lady of Peace Community Foundation (LOPECO) promotes peace to end violence
+            against women, children, and families - builds equal, resilient, and peaceful communities.
+            Our vision is to create a connected, empowered and inclusive society where communities unite to build
+            lasting
             peace, equality, and social justice.</p>
           <!-- <p class="story-p">Established in 2017, the Lady of Peace Community Foundation is a South African non-profit that believes
             lasting peace begins with ordinary people doing extraordinary work in their own neighbourhoods.</p>
@@ -163,7 +170,8 @@
           </div>
           <div class="statcard">
             <div class="stat">16</div>
-            <p class="stat-p">Gauteng community actors honoured for their work to end violence against women and girls.</p>
+            <p class="stat-p">Gauteng community actors honoured for their work to end violence against women and girls.
+            </p>
           </div>
         </div>
       </div>
@@ -179,14 +187,14 @@
             <p>Coverage of LOPECO’s awards for community actors on the front line of the fight against GBVF.</p>
             <a class="more"
               href="https://iol.co.za/sundayindependent/news/2023-01-19-honouring-activists-in-the-war-against-gender-based-violence-and-femicide/"
-              rel="noopener">Read the article →</a>
+              rel="noopener">Read the article <i class="ri-arrow-right-s-line"></i></a>
           </article>
           <article class="card news">
             <small>Instagram</small>
             <h3 style="margin-top:.4em">Follow our journey</h3>
             <p>Stories, events and updates from the foundation are shared on our Instagram page.</p>
             <a class="more" href="https://www.instagram.com/ladyofpeacefoundation/"
-              rel="noopener">@ladyofpeacefoundation →</a>
+              rel="noopener">@ladyofpeacefoundation <i class="ri-arrow-right-s-line"></i></a>
           </article>
         </div>
       </div>
@@ -195,7 +203,7 @@
     <section id="donate" class="cta">
       <div class="wrap">
         <h2>Be part of the peace movement.</h2>
-        <p>Partner with us, volunteer, donate or sponsor an initiative. Every contribution helps us recognise and
+        <p>Partner with us, volunteer, donate or sponsor an initiative. Every contribution helps us recognize and
           support the people building peace in their communities.</p>
         <div class="btns">
           <a class="btn white" href="mailto:info@lopecofoundation.org?subject=Donation%20enquiry">Donate</a>
@@ -210,21 +218,15 @@
       <div class="wrap two contact-two">
         <div>
           <h2>We’d love to hear from you.</h2>
-          <p class="stat-p">Whether you are a community organisation, a donor, a young person with an idea or a media partner, get in
+          <p class="stat-p">Whether you are a community organisation, a donor, a young person with an idea or a media
+            partner, get in
             touch.</p>
           <a class="btn primary contact-btn" href="mailto:info@lopecofoundation.org">Email the Foundation</a>
         </div>
-        <!-- <ul class="contact-list card">
-          <li><b>Email</b> <a href="mailto:info@lopecofoundation.org">info@lopecofoundation.org</a></li>
-          <li><b>Phone</b> <a href="tel:+27126651637">+27 12 665 1637</a></li>
-          <li><b>Mobile</b> <a href="tel:+27659358568">+27 65 935 8568</a></li>
-          <li><b>Instagram</b> <a href="https://www.instagram.com/ladyofpeacefoundation/"
-              rel="noopener">@ladyofpeacefoundation</a></li>
-          <li><b>X</b> @ladyofpeacecom1</li>
-          <li><b>Web</b> www.lopecofoundation.org</li>
-        </ul> -->
       </div>
     </section>
+  </div>
+  <div id="catview" hidden></div>
   </main>
 
   <div class="strip"></div>
@@ -270,6 +272,8 @@
     <div class="bottom-wrap">© 2026 LOPECO Foundation</div>
   </footer>
 
+  
+  <script src="initiatives-pack\initiatives-pack\app.js"></script>
 </body>
 
 </html>
