@@ -17,32 +17,6 @@
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
-/* @media (prefers-color-scheme:dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #121316;
-    --surface: #1b1d22;
-    --text: #f1f1f3;
-    --muted: #aab0ba;
-    --primary: #ff4fa8;
-    --primary-ink: #121316;
-    --lime-ink: #9ad14b;
-    --soft: #241a21;
-    --line: #33292f
-  }
-}
-
-:root[data-theme="dark"] {
-  --bg: #121316;
-  --surface: #1b1d22;
-  --text: #f1f1f3;
-  --muted: #aab0ba;
-  --primary: #ff4fa8;
-  --primary-ink: #121316;
-  --lime-ink: #9ad14b;
-  --soft: #241a21;
-  --line: #33292f
-} */
-
 html {
   scroll-behavior: smooth;
   scroll-padding-top: calc(110px + env(safe-area-inset-top, 0px))
@@ -224,22 +198,35 @@ nav a:hover {
 
 .btn.primary {
   background: var(--primary);
-  color: var(--primary-ink)
+  color: var(--primary-ink);
+
+  :hover {
+    background: var(--text);
+    color: var(--soft);
+  }
 }
 
 .btn.ghost {
-  color: var(--primary)
+  color: var(--primary);
+  :hover {
+    background: var(--primary);
+    color: var(--soft);
+  }
 }
 
 .btn.white {
   background: #fff;
   color: #d4147a;
-  border-color: #fff
+  border-color: #fff;
+  :hover {
+    background: var(--primary);
+    color: var(--soft);
+  }
 }
 
 .btn.outline-w {
   color: #fff;
-  border-color: #fff
+  border-color: #fff;
 }
 
 nav .btn {
@@ -260,11 +247,13 @@ nav .btn {
   grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
   align-items: center
 }
+
 .hero-text {
   display: flex;
   flex-direction: column;
   gap: 12px 0
 }
+
 .hero-img {
   display: flex;
   justify-content: center;
@@ -272,7 +261,7 @@ nav .btn {
   width: 100%;
 
   img {
-    width: 60vh; 
+    width: 60vh;
     height: auto;
   }
 }
@@ -307,6 +296,231 @@ nav .btn {
   border: 1px solid var(--line);
   border-radius: 18px;
   padding: 26px
+}
+
+/* initiative categories + modal */
+.cat {
+  display: block;
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  border-top: 6px solid var(--c);
+  transition: transform .15s, box-shadow .15s
+}
+
+.cat:hover,
+.cat:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, .12)
+}
+
+.cat p {
+  color: var(--muted);
+  font-size: .92rem
+}
+
+.cat .more {
+  color: var(--primary)
+}
+
+dialog {
+  border: 0;
+  padding: 0;
+  border-radius: 20px;
+  max-width: 680px;
+  width: calc(100% - 32px);
+  max-height: calc(100% - 48px);
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, .35)
+}
+
+dialog::backdrop {
+  background: rgba(18, 19, 22, .6)
+}
+
+.mbody {
+  padding: 26px
+}
+
+.mhead {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start
+}
+
+.mhead h3 {
+  font-size: 1.5rem;
+  margin: 0
+}
+
+.x {
+  border: 0;
+  background: var(--soft);
+  color: var(--text);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  flex: none
+}
+
+.ilist {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
+  display: grid;
+  gap: 12px
+}
+
+.ilist li {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 14px
+}
+
+.bd {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-weight: 800
+}
+
+.ilist h4 {
+  margin: 0;
+  font-size: 1rem
+}
+
+.ilist p {
+  margin: .1em 0 0;
+  color: var(--muted);
+  font-size: .88rem;
+  line-height: 1.45
+}
+
+.ilist a {
+  font-size: .85rem;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap
+}
+
+@media (max-width:520px) {
+  .ilist li {
+    flex-wrap: wrap
+  }
+
+  .ilist li>div {
+    flex: 1 1 60%
+  }
+}
+
+.cats {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 860px;
+  margin: 28px auto 0
+}
+
+@media(min-width:720px) {
+  .cats {
+    grid-template-columns: repeat(3, 1fr)
+  }
+}
+
+.cat {
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(14px, 3vw, 24px);
+  border-radius: 22px;
+  background: var(--b);
+  color: var(--i);
+  text-decoration: none;
+  transition: transform .15s
+}
+
+.cat:hover {
+  transform: translateY(-4px)
+}
+
+.cat .ci {
+  font-size: clamp(2rem, 6vw, 3rem);
+  line-height: 1
+}
+
+.cat b {
+  display: block;
+  font-size: clamp(1rem, 2.6vw, 1.3rem);
+  line-height: 1.2;
+  font-weight: 800
+}
+
+.cat small {
+  display: block;
+  margin-top: 4px;
+  opacity: .85;
+  font-size: .8rem
+}
+
+.more-tile {
+  background: transparent;
+  color: var(--text);
+  border: 2px dashed var(--primary)
+}
+
+.back {
+  display: inline-block;
+  margin-bottom: 18px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: var(--primary);
+  color: var(--soft);
+  font-weight: 700;
+  text-decoration: none
+}
+
+.logo {
+  height: auto;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 14px;
+  padding: 8px
+}
+
+.logo img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain
+}
+
+.ihead {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 8px
+}
+
+.ihead .ci {
+  font-size: 2.6rem;
+  line-height: 1
 }
 
 .ico {
@@ -347,9 +561,20 @@ nav .btn {
 }
 
 .more {
+  padding: 3px 15px;
+  border-radius: 20px;
+  border: 2px solid var(--text);
+  color: var(--text);
   font-weight: 700;
-  text-decoration: none
+  text-decoration: none;
 }
+.more:hover {
+  background: var(--primary);
+  border: 2px solid var(--primary);
+  color: var(--soft);
+  transition: all .3s;
+}
+
 
 .two {
   display: grid;
@@ -364,13 +589,16 @@ nav .btn {
     text-align: justify;
   }
 }
+
 .contact-two {
   text-align: center;
 }
+
 .stats {
   display: flex;
   gap: 40px;
 }
+
 .stat {
   font-size: 3rem;
   font-weight: 800;
@@ -387,14 +615,16 @@ nav .btn {
   margin-bottom: 16px
 }
 
-.statcard p, .stat-p {
+.statcard p,
+.stat-p {
   margin: .4em 0 0;
   color: var(--muted)
 }
 
-.par p{
+.par p {
   text-align: center;
 }
+
 .news small {
   color: var(--muted)
 }
@@ -441,10 +671,6 @@ nav .btn {
 .contact-list a {
   color: var(--text);
   text-decoration: none
-}
-
-.contact-btn {
-  margin-top: 15px;;
 }
 
 footer {
@@ -495,7 +721,8 @@ footer ul {
   align-items: center
 }
 
-.label-nav, .label-contact {
+.label-nav,
+.label-contact {
   display: flex;
   position: relative;
   top: 0;
@@ -547,21 +774,25 @@ footer ul {
   footer .wrap {
     height: 85vh;
   }
+
   .right-wrap {
     height: 50vh;
     gap: 10px;
     align-items: start;
   }
+
   .contact {
     height: 14vh;
   }
+
   .navi {
     height: 21vh;
-  } 
+  }
 
   .stats {
     flex-direction: column;
   }
+
   .statcard {
     text-align: left;
   }
@@ -570,5 +801,92 @@ footer ul {
     align-items: center;
     text-align: center;
   }
-  
+
+}
+
+/* ===== Initiative cards (WomenCan-style) =====
+   Add to the bottom of style/main.css.
+   Needs the new card markup in app.js (see the reply). */
+
+.igrid {
+  display: grid;
+  gap: 28px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  align-items: stretch;
+}
+
+.icard {
+  display: flex;
+  flex-direction: column;
+  background: #f2f2f2;
+  /* big top-right + rounded left corners, square bottom-right */
+  border-radius: 28px 44px 0 28px;
+  padding: 28px 24px 30px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, .12);
+  transition: transform .2s, box-shadow .2s;
+}
+
+.icard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 36px rgba(0, 0, 0, .16);
+}
+
+/* logo sits straight on the grey card; multiply makes the white logo background vanish */
+.ilogo {
+  height: 96px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.ilogo img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: left center;
+  mix-blend-mode: multiply;
+}
+
+/* two-colour bar (brand pink + sky) */
+.ibar {
+  width: 150px;
+  height: 7px;
+  margin-bottom: 18px;
+  background: linear-gradient(90deg, var(--primary) 0 50%, var(--sky) 50% 100%);
+}
+
+.icard h3 {
+  font-size: 1rem;
+  margin: 0 0 .4em;
+  /* logos without text (brain, shoe, face) still need the name; hide with display:none if not wanted */
+}
+
+.icard p {
+  font-size: .9rem;
+  line-height: 1.7;
+  color: var(--text);
+  margin: 0 0 22px;
+}
+
+/* outlined pill button, serif label + chevron */
+.ibtn {
+  margin-top: auto;
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 26px;
+  border: 2px solid var(--text);
+  border-radius: 999px;
+  color: var(--text);
+  text-decoration: none;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  transition: background .2s, color .2s;
+}
+
+.ibtn:hover {
+  background: var(--text);
+  color: var(--bg);
 }
